@@ -14,7 +14,7 @@ python3 -m http.server 3001 --bind 127.0.0.1
 
 ## TikTok Pixel
 
-Піксель `DBCVP0BC77U4J2JQ9TUG` надсилає перегляд сторінки та стандартну подію `Contact` після натискання будь-якої кнопки Telegram. Параметр `content_category` розрізняє кнопки: `header` або `hero`. Перехід до Telegram не блокується, якщо аналітика недоступна.
+Піксель `DBD02BJC77UASCMGFR6G` надсилає перегляд сторінки та стандартну подію `Contact` після натискання будь-якої кнопки Telegram. Параметр `content_category` розрізняє кнопки: `header` або `hero`. Перехід до Telegram не блокується, якщо аналітика недоступна.
 
 У TikTok Events Manager перевірте подію `Contact` через Test Events і виберіть її як подію конверсії в налаштуваннях реклами. Подія означає натискання кнопки, а не підтверджене повідомлення у Telegram.
 
@@ -22,7 +22,7 @@ python3 -m http.server 3001 --bind 127.0.0.1
 
 Підключіть репозиторій у Netlify. Команда збірки не потрібна, каталог публікації — `.`. `netlify.toml` налаштовує серверну функцію з `netlify/functions`. Звичайний Netlify Drop статичних файлів не розгортає серверну функцію.
 
-Для Events API додайте в Netlify Environment variables секрет `TIKTOK_ACCESS_TOKEN` (область Functions, Production) і необов’язкову змінну `TIKTOK_PIXEL_ID` (типово `DBCVP0BC77U4J2JQ9TUG`). Потім виконайте новий deploy. Не додавайте токен до HTML або Git. Netlify автоматично надає функції змінну `URL` для перевірки походження запиту.
+Для Events API додайте в Netlify Environment variables секрет `TIKTOK_ACCESS_TOKEN` (область Functions, Production) і необов’язкову змінну `TIKTOK_PIXEL_ID` (типово `DBD02BJC77UASCMGFR6G`). Потім виконайте новий deploy. Не додавайте токен до HTML або Git. Netlify автоматично надає функції змінну `URL` для перевірки походження запиту.
 
 Обидві кнопки надсилають `Contact` через Pixel і серверну функцію з однаковим `event_id` для дедуплікації. Функція передає IP та User-Agent запиту і `ttclid`, якщо він є в адресі. Без токена сервер повертає 503, браузерний Pixel та перехід у Telegram продовжують працювати. Локальний Python-сервер обслуговує тільки статичні файли; функції потребують Netlify. Отримання подій потрібно перевірити в TikTok Events Manager після deploy.
 

@@ -32,7 +32,7 @@ export async function handler(event) {
   if (data.ttclid) user.ttclid = data.ttclid;
   const payload = {
     event_source: 'web',
-    event_source_id: process.env.TIKTOK_PIXEL_ID || 'DBCVP0BC77U4J2JQ9TUG',
+    event_source_id: process.env.TIKTOK_PIXEL_ID || 'DBD02BJC77UASCMGFR6G',
     data: [{ event: 'Contact', event_time: Math.floor(Date.now() / 1000),
       event_id: data.event_id, user,
       page: { url: page.origin + page.pathname },
