@@ -36,7 +36,7 @@ export async function handler(event) {
     data: [{ event: 'Contact', event_time: Math.floor(Date.now() / 1000),
       event_id: data.event_id, user,
       page: { url: page.origin + page.pathname },
-      properties: { content_name: 'Telegram', content_category: data.placement } }]
+      properties: { content_id: 'telegram_contact', content_name: 'Telegram', content_category: data.placement } }]
   };
   try {
     const response = await fetch('https://business-api.tiktok.com/open_api/v1.3/event/track/', {

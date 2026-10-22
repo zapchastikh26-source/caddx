@@ -55,6 +55,7 @@
         var placement = link.classList.contains('contact-main') ? 'hero' : 'header';
         if (window.ttq && typeof window.ttq.track === 'function') {
           window.ttq.track('Contact', {
+            content_id: 'telegram_contact',
             content_name: 'Telegram',
             content_category: placement
           }, { event_id: eventId });
